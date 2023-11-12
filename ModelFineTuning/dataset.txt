@@ -1,0 +1,59 @@
+user: Que horarios atienden?
+assistant: Hola!, atendemos de Lunes a Viernes 9:30 am hasta las 6:00 pm.
+-
+user: Cuentan con envío?
+assistant: Si, costo adicional según la zona.
+-
+user: Cuantos días de anticipación se puede realizar un pedido?
+assistant: Únicamente lo que es personalizado se agenda como mínimo un día antes, las demás presentaciones se sacan el mismo día, y seda 1h aproximadamente para la entrega.
+-
+user: Las donitas personalizadas pueden ser de cualquier temática?
+assistant: Sii, claro, el cliente elige la frase, colores o temática que desee, lleva su dedicatoria, que igual el cliente elige lo que desea ponerle.
+-
+user: Donde están ubicados?
+assistant: Somos una tienda en línea en managua, ubicados por la fuente, contamos únicamente con delivery.
+-
+user: Podría regalarme su WhatsApp?
+assistant: Claro que si, 8138-0835
+-
+user: Las donitas bañadas pueden llevar una tarjetita?
+assistant: Si, sin problema, solo nos indica que te gustaría ponerle.
+-
+user: Como puedo realizar el pago?
+assistant: Puedes hacerlo en efectivo al momento de que se entrega el pedido o también transferencia, ya que contamos con cuenta BAC y BANPRO
+-
+user: Cuanto cuestan las mini donas bañadas?
+assistant: Te ofrecemos una varieda de mini donas bañadas que van desde 8 donitas a C$80, 12 donitas a C$110, 16 donitas a C$150, 20 donitas a C$180 y 24 donitas a C$220. Donde las bandejitas de 8 donitas y 12 donitas incluyen 2 toppings y 2 salsas, y las bandejitas de 16 donitas, 20 donitas y 24 donitas incluyen 3 toppings y 3 salsas
+-
+user: Que salsas tienen disponibles?
+assistant: Las salsas que tenemos disponibles son: Leche Condensada, Dulce de leche, Hershey's de chocolate
+-
+user: Puedo agregarle frutas?
+assistant: Si claro, puedes agregarle Fresas a C$20 y Banano
+-
+user: Cuales son los Toppings que puedo agregarle?
+assistant: Son Chispas de chocolate, chispas de colores, oreo, coco, botoneta, malvadisco, mani
+-
+user: Me puedes decir cuanto cuestan las bandejitas de mini donitas glaseadas y decoradas?
+assistant: Sí claro! Disponemos de bandejitas de 10 donitas a C$120, 12 donitas a C$150, 16 donitas a C$190, 20 donitas a C$240 y 24 donitas a C$280.
+-
+user: Cuanto cuestan los arreglos de donitas personalizadas?
+assistant: Disponemos de arreglos de 10 donitas a C$180, 15 donitas C$250, 20 donitas a C$340 y 30 donitas a C$450.
+-
+user: Cuanto cuestan los vasitos de mini donas?
+assistant: Nuestros vacitos traen 6 mini donas cubiertas y decoradas. Tenemos 2 diferentes presentaciones, las clásicas que te cuestan por unidad C$60 y por docena C$ 520, y las tematizadas que por unidad te cuestan C$70 y por docena C$640.
+-
+user: Cuanto cuestan las brochetitas de mini donas?
+assistant: Las brochetitas vienen en presentacion de 4 mini donas cubiertas y decoradas. Tenemos las brochetitas clásicas, por unidad te cuestan C$35 y por docena te cuestan C$380, y las tematizadas te cuestan por C$55 por unidad y C$480 por docena.
+-
+user: Me gustaria pedir un doni ramo, cual es su costo?
+assistant: Claro! Tenemos ramos con donitas personalizadas a C$300 y donitas clásicas a C$270.
+-
+user: Tenes bolsitas de donas?
+assistant: Claro que si, valen C$160 la docena.
+-
+user: Tienes un menu?
+assistant: Claro que si! Te puedo compartir nuestro menu en formato pdf, Si gustas te lo mando?
+-
+user: Cuanto cuesta el delivery?
+assistant: Eso dependiendo de la zona a donde se haga la entrega
