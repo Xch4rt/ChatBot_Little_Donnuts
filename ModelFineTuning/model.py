@@ -4,15 +4,22 @@ from collections import defaultdict
 import tiktoken
 import numpy as np
 import json
-
+from openai import OpenAI
+# Preparing our enviroment
 encoding = tiktoken.get_encoding("cl100k_base")
 
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPEN_AI_API_KEY")
 
+
+#openai.api_key = OPENAI_API_KEY
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 SYSTEM_MESSAGE_BOT = os.getenv("SYSTEM_MESSAGE_BOT")
 
+# Apply the necessarry format
 messages = []
 def format(list_msg, sys_msg=None):
     if sys_msg:
@@ -45,6 +52,8 @@ def format(list_msg, sys_msg=None):
 dataset = []
 
 format_list = []
+
+#Prepare the data
 with open('dataset.txt') as f:
     text = [line for line in f]
 
@@ -58,6 +67,7 @@ with open('dataset.txt') as f:
         format_list.append(line)
 
 
+# Validate format, erros and price
 format_errors = defaultdict(int)
 
 print("Lets go find errors: ")
@@ -148,9 +158,9 @@ MAX_TOKENS_PER_EXAMPLE = 4096
 
 MIN_TARGET_EXAMPLES = 100
 MAX_TARGET_EXAMPLES = 25000
-TARGET_EPOCHS = 4
+TARGET_EPOCHS = 3
 MIN_EPOCHS = 1
-MAX_EPOCHS = 25
+MAX_EPOCHS = 3
 
 n_epochs = TARGET_EPOCHS
 n_train_examples = len(dataset)
@@ -163,6 +173,8 @@ n_billing_tokens_in_dataset = sum(min(MAX_TOKENS_PER_EXAMPLE, length) for length
 print(f"El conjunto de datos tiene ~{n_billing_tokens_in_dataset} tokens que serán cargados durante el entrenamiento")
 print(f"Por defecto, entrenarás para {n_epochs} epochs en este conjunto de datos")
 print(f"Por defecto, serás cargado con ~{n_epochs * n_billing_tokens_in_dataset} tokens")
+
+# here its whats we want to check :)
 print(f"El costo total de entrenamiento seria de {((n_epochs * n_billing_tokens_in_dataset) * 0.008)/1000}$")
 
 
@@ -173,3 +185,37 @@ def save_to_jsonl(dataset, file_path):
             file.write(json_line + '\n')
 
 save_to_jsonl(dataset, 'little_donuts_train_full.jsonl')
+
+
+# upload file
+# response_file = client.files.create(
+#     file=open('little_donuts_train_full.jsonl', 'rb'),
+#     purpose='fine-tune'
+# )
+
+# print(response_file)
+
+# create a fine tuning model
+
+# response_model = client.fine_tuning.jobs.create(
+#     training_file='file-CVqATiLysXWevcHkKK73eMmx',
+#     model="gpt-3.5-turbo"
+# )
+# print(response_model)
+
+# use a fine tuning model
+
+response_using_model = client.chat.completions.create(
+    model='ft:gpt-3.5-turbo-0613:personal::8KCwxFM4',
+    messages=[
+        {
+            "role": "system", "content": SYSTEM_MESSAGE_BOT
+        },
+        {
+            "role": "assistant",
+            "content": "Hola, me gustaria saber que toppings puedo agregarle?"
+        }
+    ]
+)
+
+print(response_using_model.choices[0])

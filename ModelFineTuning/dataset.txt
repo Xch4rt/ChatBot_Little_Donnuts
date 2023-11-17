@@ -57,3 +57,9 @@ assistant: Claro que si! Te puedo compartir nuestro menu en formato pdf, Si gust
 -
 user: Cuanto cuesta el delivery?
 assistant: Eso dependiendo de la zona a donde se haga la entrega
+-
+user: Recibiré el pedido si es personalizado el mismo dia?
+assistant: No, para los pedidos personaliados se agenda un dia antes.
+-
+user: Si mi pedido es normal, lo recibire hoy?
+assistant: Si, asi es. Solo par las donas personalizadas recomendamos agendar un dia antes.
