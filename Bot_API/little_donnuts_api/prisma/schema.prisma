@@ -20,3 +20,21 @@ model User {
   Updated_at DateTime @updatedAt
 }
 
+model Customer {
+  id Int @default(autoincrement()) @id
+  fullName String
+  phone NumberPhone[]
+  isActive Boolean @default(true)
+  Created_at DateTime @default(now())
+  Updated_at DateTime @updatedAt
+}
+
+model NumberPhone {
+  id Int @default(autoincrement()) @id
+  phone String @unique
+  customerId Int
+  customer Customer @relation(fields: [customerId], references: [id])
+  isActive Boolean @default(true)
+  Created_at DateTime @default(now())
+  Updated_at DateTime @updatedAt
+}
