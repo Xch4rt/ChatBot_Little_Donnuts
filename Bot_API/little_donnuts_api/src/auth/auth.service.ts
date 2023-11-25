@@ -86,38 +86,34 @@ export class AuthService {
   private async validatePassword(password: string) : Promise<boolean> {
     return await bcrypt.compare(password, process.env.SALT);
   }
-
-  async findAll() {
+  async remove(id: number) {
     try {
-      const users = await this.dbService.user.findMany(
-        {
-          where: {
-            isActive: true
-          }
+      const user = await this.dbService.user.findUnique({
+        where: {
+          id,
+          isActive: true
         }
-      );
-      if (!this.findAll) {
-        this.logger.error("Not users founded");
-        throw new NotFoundException("Not users founded");
+      });
+
+      if (!user) {
+        this.logger.error('User does not exist')
+        throw new NotFoundException('User not found')
       }
-      this.logger.log("Fetched all users");
 
-      return users;
+      await this.dbService.user.update({
+        where: {
+          id
+        },
+        data: {
+          isActive: false
+        }
+      });
+
+      this.logger.log('User deactivaed successfuly');
+
     } catch (error: any) {
-      this.logger.error(`Error fetching all users: ${error.message}`);
-      throw new InternalServerErrorException('Error fetching users');
+      this.logger.error('Error updating status for customer, cannot be deleted');
+      throw new InternalServerErrorException('Can not be deleted')
     }
-  } 
-
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
   }
 }
